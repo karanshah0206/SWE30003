@@ -2,6 +2,7 @@
 	"name": "ayhf",
 	"version": "0.0.1",
 	"scripts": {
+		"dev": "nodemon ./backend/server.js",
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
