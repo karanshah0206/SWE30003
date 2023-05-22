@@ -1,0 +1,12 @@
+{
+  "name": "ayhf-backend",
+  "version": "1.0.0",
+  "description": "Backend for All Your Healthy Foods Online Store",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Karan Manoj Shah, Yap Zhe Wei, Calvin Wong Shen Wen, Kim Nguyen",
+  "license": "MIT"
+}
