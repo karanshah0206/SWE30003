@@ -1,7 +1,6 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import Todos from './todo_components/Todos.svelte';
+	import AddTodo from './todo_components/AddTodo.svelte';
 </script>
 
 <svelte:head>
@@ -10,22 +9,15 @@
 </svelte:head>
 
 <section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
+	<span class="">
+		<h1>Todo List</h1>
+		<AddTodo />
+		<Todos />
+	</span>
 
 	<h2>
 		try editing <strong>src/routes/+page.svelte</strong>
 	</h2>
-
-	<Counter />
 </section>
 
 <style>
