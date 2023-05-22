@@ -1,17 +1,7 @@
-# All Your Healthy Foods Online Store
-SWE30003 Software Architectures & Design
 
-## Team
-* Karan Manoj Shah
-* Yap Zhe Wei
-* Calvin Wong Shen Wen
-* Kim Nguyen
+# Fronted - All Your Healthy Foods Online Store
 
-## Setup
-TODO
-
-
-# create-svelte
+## create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
