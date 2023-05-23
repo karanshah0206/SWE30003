@@ -1,6 +1,4 @@
 <script>
-	import Todos from './todo_components/Todos.svelte';
-	import AddTodo from './todo_components/AddTodo.svelte';
 </script>
 
 <svelte:head>
@@ -9,15 +7,29 @@
 </svelte:head>
 
 <section>
-	<span class="">
-		<h1>Todo List</h1>
-		<AddTodo />
-		<Todos />
-	</span>
+	<div class="text-column">
+		<h1>All Your Healthy Foods Online Store</h1>
+		<h2>
+			try editing <strong>src/routes/+page.svelte</strong>
+		</h2>
+		<p>
+			This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
+			following into your command line and following the prompts:
+		</p>
 
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
+		<pre>npm create svelte@latest</pre>
+
+		<p>
+			The page you're looking at is purely static HTML, with no client-side interactivity needed.
+			Because of that, we don't need to load any JavaScript. Try viewing the page's source, or
+			opening the devtools network panel and reloading.
+		</p>
+
+		<p>
+			The <a href="/sverdle">Sverdle</a> page illustrates SvelteKit's data loading and form handling.
+			Try using it with JavaScript disabled!
+		</p>
+	</div>
 </section>
 
 <style>
@@ -31,21 +43,5 @@
 
 	h1 {
 		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
 	}
 </style>

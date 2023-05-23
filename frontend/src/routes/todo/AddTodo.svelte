@@ -16,7 +16,7 @@
 
 			if (response.ok) {
 				// The POST request was successful
-				window.location.href = '/';
+				window.location.href = '/todo';
 			} else {
 				// Handle the error
 				console.error('Error:', response.statusText);
