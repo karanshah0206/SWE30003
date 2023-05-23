@@ -11,7 +11,7 @@ SWE30003 Software Architectures & Design
 `npm run dev on backend`
 `npm run dev on frontend`
 
-Using a new terminal:
+Using a new terminal (For testing):
 1. `mongosh`
 2. `show dbs`
 3. `use ayhf_db`
