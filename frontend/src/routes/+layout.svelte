@@ -1,6 +1,7 @@
 <script>
 	import Navbar from './Navbar.svelte';
 	import './styles.css';
+	import 'bootstrap/dist/css/bootstrap.min.css';
 </script>
 
 <div class="app">
@@ -11,7 +12,7 @@
 	</main>
 
 	<footer>
-		<p>Test Tickle</p>
+		<p>@All Your Healthy Food</p>
 	</footer>
 </div>
 
