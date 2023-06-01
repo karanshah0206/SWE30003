@@ -27,7 +27,7 @@ app.listen(port, () => {
 // authenticate customer
 // request email: String, passowrd: String
 // result: null | Customer
-app.get("/authCustomer", async(req, res, next) => {
+app.post("/authCustomer", async(req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
     if (email == undefined || password == undefined)
@@ -38,7 +38,7 @@ app.get("/authCustomer", async(req, res, next) => {
 // authenticate admin
 // request email: String, password: String
 // result: null | Admin
-app.get("/authAdmin", async(req, res, next) => {
+app.post("/authAdmin", async(req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
     if (email == undefined || password == undefined)
@@ -56,7 +56,7 @@ app.get("/catalogue", async(req, res, next) => {
 // get product by ID
 // request: productId: String
 // response: null | Product
-app.get("/findProduct", async(req, res, next) => {
+app.post("/findProduct", async(req, res, next) => {
     const productId = req.body.productId;
     if (productId == undefined)
         return res.status(400).send("Badly formatted request.");
@@ -97,7 +97,7 @@ app.delete("/removeProduct", async(req, res, next) => {
 // get a customer's shopping cart
 // requeset: customerId: String
 // response: ShoppingCart
-app.get("/getCart", async(req, res, next) => {
+app.post("/getCart", async(req, res, next) => {
     const customerId = req.body.customerId;
     if (customerId == null)
         return res.status(400).send("Badly formatted request.");
