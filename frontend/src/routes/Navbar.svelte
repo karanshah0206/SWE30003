@@ -1,5 +1,27 @@
 <script>
+	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { beforeUpdate } from 'svelte';
+
+	let isAdmin = false;
+	let isCustomer = false;
+	
+	beforeUpdate(() => {
+		let adminData = sessionStorage.getItem("adminUser");
+		if (adminData != null && !adminData != undefined) isAdmin = true;
+		else {
+			isAdmin = false;
+			let custData = sessionStorage.getItem("customerUser");
+			if (custData != null && !custData != undefined) isCustomer = true;
+			else isCustomer = false;
+		}
+	});
+
+	function logout() {
+		sessionStorage.removeItem("adminUser");
+		sessionStorage.removeItem("customerUser");
+		goto("/");
+	}
 </script>
 
 <header>
@@ -14,21 +36,32 @@
 			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
 				<a href="/about">About</a>
 			</li>
+			{#if !isAdmin && !isCustomer}
 			<li aria-current={$page.url.pathname === '/adminLogin' ? 'page' : undefined}>
 				<a href="/adminLogin">Admin Login</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/customerLogin' ? 'page' : undefined}>
 				<a href="/customerLogin">Customer Login</a>
 			</li>
+			{/if}
+			{#if isCustomer}
 			<li aria-current={$page.url.pathname === '/cart' ? 'page' : undefined}>
 				<a href="/cart">Cart</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/catalogue' ? 'page' : undefined}>
 				<a href="/catalogue">Catalogue</a>
 			</li>
+			{/if}
+			{#if isAdmin}
 			<li aria-current={$page.url.pathname === '/dashboard' ? 'page' : undefined}>
 				<a href="/dashboard">Dashboard</a>
 			</li>
+			{/if}
+			{#if isAdmin || isCustomer}
+			<li on:click={() => logout()}>
+				<a href="#">Logout</a>
+			</li>
+			{/if}
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
