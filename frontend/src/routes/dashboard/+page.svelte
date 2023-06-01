@@ -1,55 +1,67 @@
 <script>
-	let inventory = [
-		{ id: 1, name: 'Apple', quantity: 20 },
-		{ id: 2, name: 'Banana', quantity: 50 },
-		{ id: 3, name: 'Orange', quantity: 30 }
-		// Convert to using database
-	];
+	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 
-	const updateQuantity = (id, newQuantity) => {
-		inventory = inventory.map((item) =>
-			item.id === id ? { ...item, quantity: newQuantity } : item
-		);
-	};
+	let inventory = [];
 
-	const resetQuantity = (id) => {
-		inventory = inventory.map((item) => (item.id === id ? { ...item, quantity: 0 } : item));
-	};
+	onMount(async() => {
+		const res = await fetch('http://localhost:4000/catalogue');
+		const data = await res.json();
+		inventory = data;
+	});
 
-	const removeItem = (id) => {
-		inventory = inventory.filter((item) => item.id !== id); // Remove item from inventory array, but not from database
-	};
+	async function removeItem(itemId) {
+		const removeCall = await fetch('http://localhost:4000/removeProduct', {
+			method: 'DELETE',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ _id: itemId })
+		});
+		const res = await removeCall.json();
+		if (res.success) {
+			window.location.reload();
+		} else alert("Error while deleting product from inventory.");
+	}
 </script>
 
 <svelte:head>
-	<title>Inventory</title>
-	<meta name="description" content="Inventory Page" />
+	<title>Admin Dashboard</title>
+	<meta name="description" content="Admin Dashboard Page" />
 </svelte:head>
 
-<div class="text-column">
-	<h1>Inventory</h1>
+<div>
+	<h1>Admin Dashboard</h1>
 	<table>
 		<thead>
 			<tr>
+				<th>Image</th>
 				<th>Item</th>
+				<th>Description</th>
+				<th>Category</th>
 				<th>Quantity</th>
+				<th>Weight</th>
+				<th>Price</th>
+				<th>Expiry</th>
+				<th>Available For Sale</th>
+				<th>Packaged</th>
 				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
-			{#each inventory as item (item.id)}
-				<tr class:out-of-stock={item.quantity === 0}>
+			{#each inventory as item (item._id)}
+				<tr class:out-of-stock={item.quantity == 0 && item.weight == 0}>
+					<td><img src="{item.imageURL}"/></td>
 					<td>{item.name}</td>
+					<td>{item.description}</td>
+					<td>{item.category}</td>
+					<td>{item.isPackaged ? item.quantity : "N/A"}</td>
+					<td>{item.weight + " " + item.weightUnit}</td>
+					<td>{"A$" + item.pricePerUnit}</td>
+					<td>{item.expiry}</td>
+					<td>{item.availableForSale ? "Yes" : "No"}</td>
+					<td>{item.isPackaged ? "Yes" : "No"}</td>
 					<td>
-						<input
-							type="number"
-							bind:value={item.quantity}
-							on:input={() => updateQuantity(item.id, item.quantity)}
-						/>
-					</td>
-					<td>
-						<button on:click={() => resetQuantity(item.id)}>Reset to 0</button>
-						<button on:click={() => removeItem(item.id)}>Remove</button>
+						<a class="blue" href="#">Update</a>
+						<a href="#" on:click={removeItem(item._id)}>Remove</a>
 					</td>
 				</tr>
 			{/each}
@@ -58,17 +70,12 @@
 </div>
 
 <style>
-	table {
-		width: 100%;
-	}
-
-	th,
-	td {
-		padding: 1em;
+	table { width: 100%; }
+	th, td {
+		padding: 0 0.5em;
 		border: 1px solid #ddd;
 	}
-
-	.out-of-stock {
-		box-shadow: 0 0 2px 5px rgba(255, 0, 0, 0.5);
-	}
+	img { max-width: 80px !important; }
+	.blue { color: blue !important; }
+	.out-of-stock { box-shadow: 0 0 2px 5px rgba(255, 0, 0, 0.5); }
 </style>
