@@ -10,7 +10,7 @@
 		customerId = sessionStorage.getItem('customerId');
 		if (!customerId) {
 			alert('Please log in to view your cart');
-			goto('/login');
+			goto('/customerLogin');
 			return;
 		}
 
