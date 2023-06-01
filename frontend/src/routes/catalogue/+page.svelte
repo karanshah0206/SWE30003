@@ -15,8 +15,8 @@
 			quantities[product._id] = 1; // Set default quantity to 1
 		});
 
-		// Retrieve the customerId from local storage or session storage
-		customerId = localStorage.getItem('customerId');
+		// Retrieve the customerId from session storage
+		customerId = sessionStorage.getItem('customerId');
 	});
 
 	async function addToCart(productId) {
