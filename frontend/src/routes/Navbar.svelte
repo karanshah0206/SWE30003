@@ -14,8 +14,11 @@
 			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
 				<a href="/about">About</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/login' ? 'page' : undefined}>
-				<a href="/login">Login</a>
+			<li aria-current={$page.url.pathname === '/adminLogin' ? 'page' : undefined}>
+				<a href="/adminLogin">Admin Login</a>
+			</li>
+			<li aria-current={$page.url.pathname === '/customerLogin' ? 'page' : undefined}>
+				<a href="/customerLogin">Customer Login</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/cart' ? 'page' : undefined}>
 				<a href="/cart">Cart</a>
@@ -23,11 +26,8 @@
 			<li aria-current={$page.url.pathname === '/catalogue' ? 'page' : undefined}>
 				<a href="/catalogue">Catalogue</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/inventory' ? 'page' : undefined}>
-				<a href="/inventory">Inventory</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/todo' ? 'page' : undefined}>
-				<a href="/todo">Todo</a>
+			<li aria-current={$page.url.pathname === '/dashboard' ? 'page' : undefined}>
+				<a href="/dashboard">Dashboard</a>
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">

@@ -5,28 +5,21 @@
 	let password = '';
 
 	async function login() {
-		const res = await fetch('http://localhost:4000/api/login', {
+		const res = await fetch('http://localhost:4000/authAdmin', {
 			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
+			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ email, password })
 		});
 		const data = await res.json();
-		if (data.success) {
-			if (data.user.type === 'admin') {
-				goto('/inventory');
-			} else {
-				goto('/catalogue');
-			}
-		} else {
-			alert('Login failed');
-		}
+		if (data != null) {
+			sessionStorage.setItem("adminUser", JSON.stringify(data));
+			goto("/dashboard");
+		} else alert("Login failed!");
 	}
 </script>
 
 <div class="container">
-	<h1 class="my-4 text-center">Login</h1>
+	<h1 class="my-4 text-center">Admin Login</h1>
 	<form on:submit|preventDefault={login}>
 		<div class="mb-3">
 			<label for="email" class="form-label">Email</label>
