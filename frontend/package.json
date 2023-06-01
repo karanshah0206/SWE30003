@@ -2,8 +2,8 @@
 	"name": "myapp",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "nodemon ./backend/server.js",
-		"dev": "vite dev",
+		"dev:server": "nodemon ./backend/server.js",
+    	"dev:client": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
