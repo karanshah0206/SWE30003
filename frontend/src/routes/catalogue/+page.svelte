@@ -10,9 +10,8 @@
 		const res = await fetch('http://localhost:4000/catalogue');
 		const data = await res.json();
 		products = data;
-		// Initialize quantities object with default values
 		products.forEach((product) => {
-			quantities[product._id] = 1; // Set default quantity to 1
+			quantities[product._id] = 1; //default quantity set to 1
 		});
 
 		// Retrieve the customerId from session storage
