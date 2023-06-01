@@ -26,6 +26,11 @@
 		}
 
 		const quantity = quantities[productId];
+		if (quantity < 1) {
+			alert('Quantity must be at least 1');
+			return;
+		}
+
 		const res = await fetch('http://localhost:4000/addToCart', {
 			method: 'POST',
 			headers: {
