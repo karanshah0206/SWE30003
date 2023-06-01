@@ -31,6 +31,7 @@
 			return;
 		}
 
+		const product = products.find((product) => product._id === productId);
 		const res = await fetch('http://localhost:4000/addToCart', {
 			method: 'POST',
 			headers: {
@@ -40,9 +41,9 @@
 		});
 		const data = await res.json();
 		if (data.success) {
-			alert('Product added to cart');
+			alert(`${product.name} added to cart`);
 		} else {
-			alert('Failed to add product to cart');
+			alert(`Failed to add ${product.name} to cart`);
 		}
 	}
 
@@ -50,6 +51,11 @@
 		goto('/cart');
 	}
 </script>
+
+<svelte:head>
+	<title>Catalogue</title>
+	<meta name="description" content="Shopping Cart" />
+</svelte:head>
 
 <h1 class="mt-4">Catalogue</h1>
 

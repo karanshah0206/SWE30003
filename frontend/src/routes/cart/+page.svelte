@@ -48,7 +48,7 @@
 </svelte:head>
 
 <div class="text-column">
-	<h1 class="mt-4">Cart</h1>
+	<h1 class="mt-4">Shopping Cart</h1>
 
 	{#if cart.length === 0}
 		<p>Your cart is empty</p>
