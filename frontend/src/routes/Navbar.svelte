@@ -56,6 +56,9 @@
 			<li aria-current={$page.url.pathname === '/dashboard' ? 'page' : undefined}>
 				<a href="/dashboard">Dashboard</a>
 			</li>
+			<li aria-current={$page.url.pathname === '/addProduct' ? 'page' : undefined}>
+				<a href="/addProduct">Add Product</a>
+			</li>
 			{/if}
 			{#if isAdmin || isCustomer}
 			<li on:click={() => logout()}>
