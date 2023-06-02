@@ -12,9 +12,10 @@
 		});
 		const data = await res.json();
 		if (data != null) {
-			sessionStorage.setItem("customerUser", JSON.stringify(data));
-			goto("/catalogue");
-		} else alert("Login failed!");
+			sessionStorage.setItem('customerUser', JSON.stringify(data));
+			sessionStorage.setItem('customerId', data._id); // pass the customer id to the catalogue page
+			goto('/catalogue');
+		} else alert('Login failed!');
 	}
 </script>
 
