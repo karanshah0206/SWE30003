@@ -23,6 +23,25 @@
 		});
 		const data = await res.json();
 		cart = data.orderItems.filter((item) => item.product !== null);
+
+		console.log(data);
+
+		// Fetch product details
+		await Promise.all(
+			cart.map(async (item) => {
+				if (item.product !== null) {
+					const productFind = await fetch('http://localhost:4000/findProduct', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify({ productId: item.product })
+					});
+					const productData = await productFind.json();
+					item.productDetails = productData;
+				}
+			})
+		);
 	});
 
 	async function removeFromCart(orderItemId) {
@@ -55,9 +74,9 @@
 	{:else}
 		<ul class="list-group">
 			{#each cart as item}
-				{#if item.product}
+				{#if item.product && item.productDetails}
 					<li class="list-group-item">
-						<h3 class="mb-1">{item.product.name}</h3>
+						<h3 class="mb-1">{item.productDetails.name}</h3>
 						<p class="mb-1"><strong>Quantity:</strong> {item.quantity}</p>
 						<p class="mb-1"><strong>Price:</strong> ${item.price}</p>
 						<button class="btn btn-danger mt-2" on:click={() => removeFromCart(item._id)}
