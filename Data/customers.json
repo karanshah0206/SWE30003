@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "64700d65e52a2cc886415ee1"
+  },
+  "email": "karanshah0206@outlook.com",
+  "password": "Testing123",
+  "name": "Karan Manoj Shah",
+  "address": "24 Wakefield Street, Hawthorn, VIC - 3122",
+  "phone": "0475626554",
+  "__v": 0
+}]

@@ -1,0 +1,37 @@
+[{
+  "_id": {
+    "$oid": "6476b36eee9b2a51cea6f9eb"
+  },
+  "name": "Olives Jar",
+  "description": "A Jar of Healthy, Fresh Olives",
+  "category": "Fruits & Veg",
+  "quantity": 150,
+  "weight": 700,
+  "weightUnit": "grams",
+  "pricePerUnit": 3.5,
+  "expiry": {
+    "$date": "2024-02-15T00:00:00.000Z"
+  },
+  "availableForSale": true,
+  "isPackaged": true,
+  "imageURL": "https://cdn.shopify.com/s/files/1/1834/0943/products/olivefill-PimS2kg_69f9f3bd-8706-4ec0-9b37-8c12378a407e_800x.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64772f0be1c819d3b5e64291"
+  },
+  "name": "Loose Spinach",
+  "description": "Fresh & Healthy Farm-Grown Spinach",
+  "category": "Fruits & Veg",
+  "quantity": 0,
+  "weight": 2000,
+  "weightUnit": "grams",
+  "pricePerUnit": 0.3,
+  "expiry": {
+    "$date": "2023-06-02T00:00:00.000Z"
+  },
+  "availableForSale": true,
+  "isPackaged": false,
+  "imageURL": "https://cdn.britannica.com/30/82530-050-79911DD4/Spinach-leaves-vitamins-source-person.jpg",
+  "__v": 0
+}]

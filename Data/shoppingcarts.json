@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "647726bae6c6784db15323cd"
+  },
+  "customerId": "64700d65e52a2cc886415ee1",
+  "orderItems": [
+    {
+      "productId": "64772f0be1c819d3b5e64291",
+      "quantity": 200,
+      "price": 60,
+      "_id": {
+        "$oid": "64772fe1e1c819d3b5e6429f"
+      }
+    }
+  ],
+  "__v": 3
+}]

@@ -39,6 +39,7 @@
 					});
 
 					const productData = await productFind.json();
+					console.log(cart);
 					item.productDetails = productData;
 				}
 			})
@@ -75,16 +76,14 @@
 	{:else}
 		<ul class="list-group">
 			{#each cart as item}
-				{#if item.product && item.productDetails}
-					<li class="list-group-item">
-						<h3 class="mb-1">{item.productDetails.name}</h3>
-						<p class="mb-1"><strong>Quantity:</strong> {item.quantity}</p>
-						<p class="mb-1"><strong>Price:</strong> ${item.price}</p>
-						<button class="btn btn-danger mt-2" on:click={() => removeFromCart(item._id)}
-							>Remove from Cart</button
-						>
-					</li>
-				{/if}
+				<li class="list-group-item">
+					<h3 class="mb-1">{item.productDetails.name}</h3>
+					<p class="mb-1"><strong>Quantity:</strong> {item.quantity}</p>
+					<p class="mb-1"><strong>Price:</strong> ${item.price}</p>
+					<button class="btn btn-danger mt-2" on:click={() => removeFromCart(item._id)}
+						>Remove from Cart</button
+					>
+				</li>
 			{/each}
 		</ul>
 	{/if}
