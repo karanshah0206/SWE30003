@@ -19,6 +19,6 @@ SWE30003 Software Architectures & Design
 Using a new terminal (For testing):
 1. `mongosh`
 2. `show dbs`
-3. `use ayhf_db`
+3. `use ayhf`
 4. `show collections`
-5. `db.todos.find()`
+5. `db.inventories.find()`
