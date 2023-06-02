@@ -77,12 +77,26 @@
 		<ul class="list-group">
 			{#each cart as item}
 				<li class="list-group-item">
-					<h3 class="mb-1">{item.productDetails.name}</h3>
-					<p class="mb-1"><strong>Quantity:</strong> {item.quantity}</p>
-					<p class="mb-1"><strong>Price:</strong> ${item.price}</p>
-					<button class="btn btn-danger mt-2" on:click={() => removeFromCart(item._id)}
-						>Remove from Cart</button
-					>
+					<div class="row">
+						<div class="col-lg-8">
+							<h3 class="mb-1">{item.productDetails.name}</h3>
+							<p class="mb-1"><strong>Quantity:</strong> {item.quantity}</p>
+							<p class="mb-1"><strong>Price:</strong> ${item.price}</p>
+							<button class="btn btn-danger mt-2" on:click={() => removeFromCart(item._id)}
+								>Remove from Cart</button
+							>
+						</div>
+						<div class="col-lg-4 text-lg-end">
+							<div class="d-flex justify-content-end">
+								<img
+									class="img-fluid rounded"
+									src={item.productDetails.imageURL}
+									alt={item.productDetails.name}
+									width="200"
+								/>
+							</div>
+						</div>
+					</div>
 				</li>
 			{/each}
 		</ul>
