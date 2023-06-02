@@ -21,6 +21,11 @@
 			window.location.reload();
 		} else alert("Error while deleting product from inventory.");
 	}
+
+	function updateItem(product) {
+		sessionStorage.setItem("prodInfo", JSON.stringify(product));
+		goto('/editProduct');
+	}
 </script>
 
 <svelte:head>
@@ -60,7 +65,7 @@
 					<td>{item.availableForSale ? "Yes" : "No"}</td>
 					<td>{item.isPackaged ? "Yes" : "No"}</td>
 					<td>
-						<a class="blue" href="#">Update</a>
+						<a class="blue" href="#" on:click={updateItem(item)}>Update</a>
 						<a href="#" on:click={removeItem(item._id)}>Remove</a>
 					</td>
 				</tr>
