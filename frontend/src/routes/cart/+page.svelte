@@ -55,14 +55,16 @@
 	{:else}
 		<ul class="list-group">
 			{#each cart as item}
-				<li class="list-group-item">
-					<h3 class="mb-1">{item.product.name}</h3>
-					<p class="mb-1"><strong>Quantity:</strong> {item.quantity}</p>
-					<p class="mb-1"><strong>Price:</strong> ${item.price}</p>
-					<button class="btn btn-danger mt-2" on:click={() => removeFromCart(item._id)}
-						>Remove from Cart</button
-					>
-				</li>
+				{#if item.product}
+					<li class="list-group-item">
+						<h3 class="mb-1">{item.product.name}</h3>
+						<p class="mb-1"><strong>Quantity:</strong> {item.quantity}</p>
+						<p class="mb-1"><strong>Price:</strong> ${item.price}</p>
+						<button class="btn btn-danger mt-2" on:click={() => removeFromCart(item._id)}
+							>Remove from Cart</button
+						>
+					</li>
+				{/if}
 			{/each}
 		</ul>
 	{/if}
