@@ -29,14 +29,15 @@
 		// Fetch product details
 		await Promise.all(
 			cart.map(async (item) => {
-				if (item.product !== null) {
+				if (item.productId !== null) {
 					const productFind = await fetch('http://localhost:4000/findProduct', {
 						method: 'POST',
 						headers: {
 							'Content-Type': 'application/json'
 						},
-						body: JSON.stringify({ productId: item.product })
+						body: JSON.stringify({ productId: item.productId })
 					});
+
 					const productData = await productFind.json();
 					item.productDetails = productData;
 				}
