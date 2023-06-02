@@ -8,8 +8,13 @@ SWE30003 Software Architectures & Design
 * Kim Nguyen
 
 ## Setup
-`npm run dev on backend`
-`npm run dev on frontend`
+### Backend folder
+`npm install`
+`npm start`
+
+### Frontend folder
+`npm install`
+`npm run dev`
 
 Using a new terminal (For testing):
 1. `mongosh`
