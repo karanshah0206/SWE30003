@@ -22,7 +22,7 @@
 			body: JSON.stringify({ customerId })
 		});
 		const data = await res.json();
-		cart = data.orderItems;
+		cart = data.orderItems.filter((item) => item.product !== null);
 	});
 
 	async function removeFromCart(orderItemId) {

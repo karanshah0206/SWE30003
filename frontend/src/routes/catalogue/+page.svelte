@@ -45,10 +45,6 @@
 			alert(`Failed to add ${product.name} to cart`);
 		}
 	}
-
-	function goToCart() {
-		goto('/cart');
-	}
 </script>
 
 <svelte:head>
@@ -100,5 +96,4 @@
 			</li>
 		{/each}
 	</ul>
-	<button class="btn btn-primary mt-3" on:click={goToCart}>Go to Cart</button>
 {/if}
